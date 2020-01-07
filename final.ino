@@ -1,4 +1,3 @@
-# nkustiot
 #include <Wire.h>
 #include <mpu9250_blockly.h>
 #include <SoftwareSerial.h>
@@ -76,6 +75,8 @@ void loop() {
                 }
                 if (V == "A" and w == 1)
                 {
+                  Serial1.print("At\r");
+                  delay(1000);
                   Serial1.print("AT+DTX=" + (String)latitude.length() + ",\"" + latitude + "\"\r");
                   delay(500);
                   if (Serial1.available() > 0) {
